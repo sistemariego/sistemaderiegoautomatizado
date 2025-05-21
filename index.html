@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online de Sistemas de Riego Automatizado</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <h1>Tienda de Riego Automatizado</h1>
+        <nav>
+            <ul>
+                <li><a href="#productos" class="active">Productos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li>
+                    <a href="#carrito">Carrito <span id="cart-count" style="background:#45a049;color:#fff;padding:2px 8px;border-radius:8px;font-size:0.9em;margin-left:4px;">0</span></a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="container">
+        <section id="productos">
+            <h2>Productos Destacados</h2>
+            <div id="products" style="display:flex;flex-wrap:wrap;gap:32px;justify-content:center;">
+                <!-- Los productos se renderizan dinámicamente por JS -->
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form id="form-contacto">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+        <section id="carrito">
+            <h2>Carrito de Compras</h2>
+            <div id="lista-carrito">
+                <!-- Los productos del carrito se mostrarán aquí -->
+            </div>
+            <button id="comprar">Comprar</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Tienda de Riego Automatizado. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Panel flotante de WhatsApp -->
+    <div id="whatsapp-panel" style="position:fixed;bottom:32px;right:32px;z-index:1000;">
+        <button onclick="document.getElementById('whatsapp-modal').style.display='block'" style="background:#25d366;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-size:2em;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:1.5em;">&#128241;</span>
+        </button>
+        <div id="whatsapp-modal" style="display:none;position:absolute;bottom:70px;right:0;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.18);padding:20px 24px;min-width:240px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <strong style="color:#25d366;">WhatsApp</strong>
+                <button onclick="document.getElementById('whatsapp-modal').style.display='none'" style="background:none;border:none;font-size:1.2em;cursor:pointer;">&times;</button>
+            </div>
+            <p style="margin:12px 0 0 0;">¿Necesitas ayuda? <br>Escríbenos por WhatsApp.</p>
+            <a href="https://wa.me/51999999999" target="_blank" style="display:block;background:#25d366;color:#fff;text-align:center;padding:10px 0;border-radius:8px;margin-top:12px;text-decoration:none;font-weight:bold;">Chatear</a>
+        </div>
+    </div>
+
+    <!-- Panel flotante de Email -->
+    <div id="email-panel" style="position:fixed;bottom:32px;right:104px;z-index:1000;">
+        <button onclick="document.getElementById('email-modal').style.display='block'" style="background:#35424a;color:#fff;border:none;border-radius:50%;width:56px;height:56px;box-shadow:0 2px 8px rgba(0,0,0,0.15);font-size:2em;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+            <span style="font-size:1.5em;">&#9993;</span>
+        </button>
+        <div id="email-modal" style="display:none;position:absolute;bottom:70px;right:0;background:#fff;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.18);padding:20px 24px;min-width:240px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+                <strong style="color:#35424a;">Contacto Email</strong>
+                <button onclick="document.getElementById('email-modal').style.display='none'" style="background:none;border:none;font-size:1.2em;cursor:pointer;">&times;</button>
+            </div>
+            <p style="margin:12px 0 0 0;">¿Prefieres escribirnos por correo?</p>
+            <a href="mailto:info@riegoautomatizado.com" style="display:block;background:#35424a;color:#fff;text-align:center;padding:10px 0;border-radius:8px;margin-top:12px;text-decoration:none;font-weight:bold;">Enviar Email</a>
+        </div>
+    </div>
+
+    <!-- Panel flotante grande de contacto -->
+    <div id="contacto-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.45);z-index:2000;align-items:center;justify-content:center;">
+        <div style="background:#fff;max-width:480px;width:90vw;padding:36px 28px 28px 28px;border-radius:18px;box-shadow:0 8px 40px rgba(53,66,74,0.18);margin:auto;position:relative;display:flex;flex-direction:column;align-items:center;">
+            <button onclick="document.getElementById('contacto-modal').style.display='none'" style="position:absolute;top:16px;right:18px;background:none;border:none;font-size:2em;line-height:1;cursor:pointer;color:#35424a;">&times;</button>
+            <h2 style="color:#35424a;margin-bottom:18px;">Datos de Contacto</h2>
+            <div style="font-size:1.1em;color:#333;text-align:center;">
+                <p><strong>Email:</strong> info@riegoautomatizado.com</p>
+                <p><strong>Teléfono:</strong> +51 999 999 999</p>
+                <p><strong>WhatsApp:</strong> <a href="https://wa.me/51999999999" target="_blank" style="color:#25d366;text-decoration:none;">+51 999 999 999</a></p>
+                <p><strong>Dirección:</strong> Av. Principal 123, Lima, Perú</p>
+                <p style="margin-top:18px;">¡Estamos para ayudarte en todo momento!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/app.js"></script>
+    <script>
+    // Cierra los paneles flotantes al hacer clic fuera de ellos
+    window.onclick = function(event) {
+        if (event.target === document.getElementById('whatsapp-modal')) {
+            document.getElementById('whatsapp-modal').style.display = 'none';
+        }
+        if (event.target === document.getElementById('email-modal')) {
+            document.getElementById('email-modal').style.display = 'none';
+        }
+    }
+
+    // Mostrar panel de contacto al hacer clic en el menú
+    document.querySelector('a[href="#contacto"]').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('contacto-modal').style.display = 'flex';
+    });
+
+    // Cerrar el panel al hacer clic fuera del recuadro
+    document.getElementById('contacto-modal').addEventListener('click', function(e) {
+        if (e.target === this) this.style.display = 'none';
+    });
+    </script>
+</body>
+</html>
